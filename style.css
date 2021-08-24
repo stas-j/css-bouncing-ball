@@ -1,0 +1,149 @@
+@import "keyframes.css";
+@import "root.css";
+/*body{
+  font-size: 75px;
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0;
+  perspective:5em;
+  perspective-origin: 50% calc(50% - 2em);
+  animation:  var(--cameraSpeed) infinite linear;
+  overflow:hidden;
+}*/
+body{
+  margin:0;
+  overflow:hidden;
+}
+h2{
+  position:absolute;
+  color:rgba(123, 119, 119, 0.9);
+  z-index: 1;
+  left:1em;
+}
+.info{
+  position:absolute;
+  z-index: 1;
+  right:-20em;
+  top:0;
+  max-width:30%;
+  min-width:20em;
+  height:100%;
+  background:rgba(0,0,0,0.75);
+  color:#FF785A;
+}
+.hidden{
+  visibility:hidden;
+}
+.scene-wrapper
+{
+  font-size: 75px;
+  background-color: black;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:0;
+  perspective:5em;
+  perspective-origin: 50% calc(50% - 2em);
+  animation:  var(--cameraSpeed) infinite linear;
+  overflow:hidden;
+}
+
+.scene{
+  position:relative;
+  transform-style: preserve-3d;
+  animation: sceneRotate var(--rotateSpeed) infinite linear;
+
+}
+
+.ball{
+  width:1em;
+  height:1em;
+  border-radius: 50%;
+  background: lightblue;
+  position: absolute;
+  left:-.5em;
+  bottom:1em;
+  background-image: radial-gradient(
+    circle at top,
+    lightblue, 50%,
+    #000
+    );
+    animation:
+    sceneRotate var(--rotateSpeed) infinite linear reverse,
+    ballBounce var(--bounceSpeed) infinite ease-out;
+}
+.ballShadow{
+  position: absolute;
+  width:100%; height: 100%;
+  background-image: radial-gradient(#0007, #0000 50%);
+  animation: ballShadow var(--bounceSpeed) infinite ease-out;
+}
+.cube{
+width:2em;
+height:2em;
+position: absolute;
+bottom: -1em;
+left:-1em;
+animation: cubeHeight var(--bounceSpeed) infinite linear;
+
+
+
+
+}
+.left, .right, .front, .back {
+  position:absolute;
+  width:100%;
+  height: 100%;
+  background-color:var(--boxColor);
+  box-shadow: 0 0 0.5em #000 inset;
+
+}
+.front{
+  transform: translateZ(1em);
+
+}
+
+.top{
+  position: absolute;
+  width: 2em;
+  height: 2em;
+  background:var(--boxColor);
+  transform: translateY(-50%) rotateX(90deg);
+}
+.bottom{
+  position: absolute;
+  bottom: 0;
+  width: 2em;
+  height: 2em;
+  background:var(--boxColor);
+  transform:translateY(50%) rotateX(90deg);
+  box-shadow: 0 0 0.5em #000 outset;
+}
+.right{transform: rotateY(90deg) translateZ(1em);}
+.back{transform: rotateY(180deg) translateZ(1em);}
+.left{transform: rotateY(270deg) translateZ(1em);}
+
+
+
+.floor{
+position: absolute;
+top:1em;
+width:50em;
+height:50em;
+background-image:
+
+radial-gradient(#0000, #000 75%),
+repeating-conic-gradient(
+  from 45deg,
+  #111 0deg 90deg,
+  #222 90deg 180deg);
+background-size:100%, 1em 1em;
+transform:
+translate(-50%, -50%)
+rotateX(90deg);
+
+}
